@@ -7,20 +7,20 @@ const useFetch = (url) => {
 
     useEffect(() => {
       const abortCont = new AbortController();
-      setTimeout(() => {
+      setTimeout(() => { // give some of seconds to laoding massage as write before
           fetch(url ,{ signal: abortCont.signal })
-          .then(res => {
+          .then(res => { //response
             if (!res.ok) { // error coming back from server
               throw Error('could not fetch the data for that resource');
             } 
             return res.json();
           })
-          .then(data => {
+          .then(data => { //in the case of appearing data another not found 
             setIsPending(false);
             setData(data);
             setError(null);
           })
-          .catch(err => {
+          .catch(err => { // that mean there are two type of massage for two case
             // auto catches network connection error
             if(err.name==='AbortError'){
             console.log('fetch aborted')
@@ -30,7 +30,7 @@ const useFetch = (url) => {
             } 
           })
         }, 1000);
-        return () => abortCont.abort();
+        return () => abortCont.abort();// not US
       }, [url]);
 
       return {data ,isPending , error};

@@ -12,7 +12,7 @@ const history = useHistory();
     //    console.log(blog);
     
          setIsPending(true);
-       fetch('http://localhost:8000/blogs' ,
+       fetch('http://localhost:8000/blogs' , // not US
         {
            method:'POST',
            headers:{"Content-Type":"application/json"},

@@ -3,7 +3,7 @@ const NotFound =() =>{
     return(
         <div className="not-found">
            <h2>sorry</h2>
-           <p>that psge not be found</p> 
+           <p>that page not be found</p> 
         <Link to="/">Back to the homepage....</Link>
         </div>
     );
